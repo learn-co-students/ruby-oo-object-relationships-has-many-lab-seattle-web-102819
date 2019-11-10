@@ -1,13 +1,19 @@
 class Author
     attr_accessor :name
+    @@all = []
 
     def initialize(name)
         @name = name
+        @@all << self
     end
 
-    # def posts
-    #     Post.all.select {|song| song.artist == sef}
-    # end
+    def self.all
+        @@all
+    end
+
+    def posts
+        Post.all.select {|song| song.artist == sef}
+    end
 
     def add_post(post)
         post.author = self
